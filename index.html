@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur Prestations Complémentaires (PC)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculateur Prestations Complémentaires (PC)</h1>
+
+    <form id="pc-calculator">
+        <section>
+            <h2>Informations Générales</h2>
+            <div>
+                <label for="family-situation">Situation Familiale:</label>
+                <select id="family-situation" name="family-situation">
+                    <option value="single">Personne Seule</option>
+                    <option value="couple">Couple</option>
+                    <option value="single-child">Personne Seule avec Enfant(s)</option>
+                    <option value="couple-child">Couple avec Enfant(s)</option>
+                </select>
+            </div>
+            <div>
+                <label for="canton">Canton de Résidence:</label>
+                <select id="canton" name="canton">
+                    <option value="ZH">Zurich</option>
+                    <option value="BE">Berne</option>
+                    <!-- Add all other cantons -->
+                </select>
+            </div>
+            <div>
+                <label for="living-situation">Situation de Logement:</label>
+                <select id="living-situation" name="living-situation">
+                    <option value="home">À Domicile</option>
+                    <option value="home-facility">En Établissement Médico-Social</option>
+                </select>
+            </div>
+        </section>
+
+        <section>
+            <h2>Revenus</h2>
+            <div>
+                <label for="avs-ai-applicant">Rente AVS/AI (Demandeur):</label>
+                <input type="number" id="avs-ai-applicant" name="avs-ai-applicant">
+            </div>
+            <div id="couple-fields" style="display: none;">
+                <label for="avs-ai-spouse">Rente AVS/AI (Conjoint):</label>
+                <input type="number" id="avs-ai-spouse" name="avs-ai-spouse">
+            </div>
+             <div>
+                <label for="revenue-applicant">Revenu d'une activité lucrative  (Demandeur):</label>
+                <input type="number" id="revenue-applicant" name="revenue-applicant">
+            </div>
+
+            <div id="couple-fields" style="display: none;">
+                <label for="revenue-spouse">Revenu d'une activité lucrative (Conjoint):</label>
+                <input type="number" id="revenue-spouse" name="revenue-spouse">
+            </div>
+        </section>
+
+        <section>
+            <h2>Actifs</h2>
+            <div>
+                <label for="total-assets">Total des Actifs:</label>
+                <input type="number" id="total-assets" name="total-assets">
+            </div>
+        </section>
+
+        <section>
+            <h2>Dépenses</h2>
+           <div>
+                <label for="child-under-11">Nombre d'enfants de moins de 11 ans:</label>
+                <input type="number" id="child-under-11" name="child-under-11" value="0">
+            </div>
+            <div>
+                <label for="child-11-25">Nombre d'enfants de 11 à 25 ans:</label>
+                <input type="number" id="child-11-25" name="child-11-25" value="0">
+            </div>
+            <div>
+                <label for="gross-rent">Loyer Brut (Charges Comprises):</label>
+                <input type="number" id="gross-rent" name="gross-rent">
+            </div>
+        </section>
+
+        <button type="button" id="calculate-button">Calculer</button>
+
+        <section id="results" style="display: none;">
+            <h2>Résultats</h2>
+            <div>
+                <label>Prestation Complémentaire Annuelle Estimée:</label>
+                <span id="annual-pc"></span>
+            </div>
+            <div>
+                <label>Prestation Complémentaire Mensuelle Estimée:</label>
+                <span id="monthly-pc"></span>
+            </div>
+            <p class="disclaimer"><strong>Avertissement:</strong> Ce calcul est une estimation basée sur les directives fédérales. Les réglementations cantonales peuvent varier considérablement. Veuillez consulter les autorités compétentes pour une évaluation précise.</p>
+        </section>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
